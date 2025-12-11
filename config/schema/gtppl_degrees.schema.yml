@@ -1,0 +1,7 @@
+field.field_settings.gtppl_degrees:
+  type: mapping
+  label: 'Degrees field settings'
+  mapping:
+    max_year_offset:
+      type: integer
+      label: 'Max year offset (years beyond current)'

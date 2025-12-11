@@ -1,0 +1,5 @@
+name: GT People Degrees
+type: module
+description: Degree info compound field 
+core_version_requirement: ^11
+package: GT People

@@ -1,0 +1,14 @@
+{
+  "name": "GT People Degrees",
+  "description": "Degree info compound field (helps with form dependency checking)",
+  "type": "drupal-custom module",
+  "require": {
+    "php": "^8.3",
+    "drupal/core": "^11"
+  },
+  "autoload": {
+    "psr-4": {
+      "Drupal\\gtppl_degrees\\": "src/"
+    }
+  }
+}
