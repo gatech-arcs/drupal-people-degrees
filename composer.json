@@ -2,6 +2,7 @@
   "name": "gtsciences/gt_people_degrees",
   "description": "GT People Degree info compound field (helps with form dependency checking)",
   "type": "drupal-custom-module",
+  "license": "GPL-2.0-or-later",
   "require": {
     "php": "^8.3",
     "drupal/core": "^11"
