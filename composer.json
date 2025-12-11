@@ -1,6 +1,6 @@
 {
-  "name": "GT People Degrees",
-  "description": "Degree info compound field (helps with form dependency checking)",
+  "name": "gtsciences/gt_people_degrees",
+  "description": "GT People Degree info compound field (helps with form dependency checking)",
   "type": "drupal-custom module",
   "require": {
     "php": "^8.3",
