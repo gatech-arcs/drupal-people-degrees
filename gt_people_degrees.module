@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for GT People Degrees.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function gt_people_degrees_theme($existing, $type, $theme, $path): array {
+  return [
+    'gt_people_degree' => [
+      'variables' => [
+        'degree_name' => NULL,
+        'degree_year' => NULL,
+        'degree_institution' => NULL,
+        'degree_location' => NULL,
+        'degree_designation' => NULL,
+      ],
+      'template' => 'gt-people-degree',
+    ],
+  ];
+}

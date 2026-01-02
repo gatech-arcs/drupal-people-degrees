@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a GT People Degree item.
+ *
+ * Available variables:
+ * - degree_name: Degree granted
+ * - degree_year: Year granted
+ * - degree_institution: Granting institution
+ * - degree_location: Institution's location
+ * - degree_designation: Any designation (e.g., "with Honors")
+ */
+#}
+<div class="gt-degree">
+  <h3>
+    {{ degree_name }}
+    {% if degree_designation %}
+      <span class="gt-degree-designation"> ({{ degree_designation }})</span>
+    {% endif %}
+  </h3>
+
+  <p class="gt-degree-meta">
+
+    {% if degree_institution %}
+      <span class="degree_institution">{{degree_institution}}</span>
+    {% endif %}
+
+    {% if degree_year %}
+      <span class="degree_year">{{degree_year}}</span>
+    {% endif %}
+
+    {% if degree_location %}
+      <span class="degree_location">{{degree_location}}</a>
+    {% endif %}
+
+  </p>
+</div>

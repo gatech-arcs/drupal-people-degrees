@@ -1,12 +1,12 @@
 # GT People Degrees module
 
 A Compound Field that provides a repeatable instance of
+
 - Degree
 - Year
 - Institution
 - Location
-- With honors
-- Honorary
+- Degree Designations
 
 A compound field should help with the node form dependency checking
 

@@ -1,0 +1,8 @@
+name: 'GT People Degrees'
+type: module
+description: 'Provides a compound field for Degree information'
+core_version_requirement: ^10.3 || ^11
+php: 8.3
+package: 'GT Sciences'
+dependencies:
+  - drupal:datetime
