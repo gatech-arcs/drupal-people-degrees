@@ -34,6 +34,7 @@ jobs:
         run: |
           composer install --prefer-dist --no-progress --no-suggest
           composer config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+          composer config allow-plugins.drupal/core-composer-scaffold
 
       - name: Install Drupal PHPCS Standards
         run: |
