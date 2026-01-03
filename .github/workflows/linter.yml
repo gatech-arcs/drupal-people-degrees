@@ -42,3 +42,5 @@ jobs:
           # YAML is validated via eslint plugin for Drupal
           VALIDATE_YAML_PRETTIER: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Ignoring the drupal core ext-gd
+          COMPOSER_IGNORE_PLATFORM_REQS: ext-gd
