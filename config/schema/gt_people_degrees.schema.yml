@@ -11,19 +11,19 @@ field.value.gt_people_degree:
   type: mapping
   label: 'GT People Degree value'
   mapping:
-    gt_people_degree_name:
+    name:
       type: string
       label: 'Degree Name'
-    gt_people_degree_year:
+    year:
       type: string
       label: 'Year'
-    gt_people_degree_institution:
+    institution:
       type: string
       label: 'Institution'
-    gt_people_degree_location:
+    location:
       type: string
       label: 'Location'
-    gt_people_degree_designation:
+    designation:
       type: string
       label: 'Designation'
 

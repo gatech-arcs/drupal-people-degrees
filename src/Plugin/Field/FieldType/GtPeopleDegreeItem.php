@@ -28,26 +28,11 @@ class GtPeopleDegreeItem extends FieldItemBase {
   public static function schema(FieldStorageDefinitionInterface $field_definition): array {
     return [
       'columns' => [
-        'gt_people_degree_name' => [
-          'type' => 'varchar',
-          'length' => 255,
-        ],
-        'gt_people_degree_year' => [
-          'type' => 'varchar',
-          'size' => 10,
-        ],
-        'gt_people_degree_institution' => [
-          'type' => 'varchar',
-          'length' => 255,
-        ],
-        'gt_people_degree_location' => [
-          'type' => 'varchar',
-          'length' => 255,
-        ],
-        'gt_people_degree_designation' => [
-          'type' => 'varchar',
-          'length' => 255,
-        ],
+        'name' => ['type' => 'varchar', 'length' => 255],
+        'year' => ['type' => 'varchar', 'length' => 20],
+        'institution' => ['type' => 'varchar', 'length' => 255],
+        'location' => ['type' => 'varchar', 'length' => 255],
+        'designation' => ['type' => 'varchar', 'length' => 255],
       ],
     ];
   }
@@ -58,19 +43,19 @@ class GtPeopleDegreeItem extends FieldItemBase {
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition): array {
     $properties = [];
 
-    $properties['gt_people_degree_name'] = DataDefinition::create('string')
+    $properties['name'] = DataDefinition::create('string')
       ->setLabel(new TranslatableMarkup('Degree Name'));
 
-    $properties['gt_people_degree_year'] = DataDefinition::create('integer')
+    $properties['year'] = DataDefinition::create('integer')
       ->setLabel(new TranslatableMarkup('Year'));
 
-    $properties['gt_people_degree_institution'] = DataDefinition::create('string')
+    $properties['institution'] = DataDefinition::create('string')
       ->setLabel(new TranslatableMarkup('Institution'));
 
-    $properties['gt_people_degree_location'] = DataDefinition::create('string')
+    $properties['location'] = DataDefinition::create('string')
       ->setLabel(new TranslatableMarkup('Location'));
 
-    $properties['gt_people_degree_designation'] = DataDefinition::create('string')
+    $properties['designation'] = DataDefinition::create('string')
       ->setLabel(new TranslatableMarkup('Designation'))
       ->setDescription(new TranslatableMarkup('Any special designation associated with the degree'));
 
@@ -81,7 +66,7 @@ class GtPeopleDegreeItem extends FieldItemBase {
    */
   public function isEmpty(): bool {
     // KISS -- consider field empty if the Degree Name is empty.
-    $value = $this->get('gt_people_degree_name')->getValue();
+    $value = $this->get('name')->getValue();
     return $value === NULL || $value === '';
   }
 

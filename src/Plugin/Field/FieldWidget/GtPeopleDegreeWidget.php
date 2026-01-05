@@ -24,11 +24,6 @@ class GtPeopleDegreeWidget extends WidgetBase {
    * {@inheritdoc}
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state): array {
-    $item = $items[$delta];
-
-    $default_year = (int) date('Y');
-    $settings = $this->getFieldSettings();
-    $max_year = $default_year + 10;
 
     $element += [
       '#type' => 'fieldset',
@@ -36,36 +31,36 @@ class GtPeopleDegreeWidget extends WidgetBase {
       '#open' => TRUE,
     ];
 
-    $element['gt_people_degree_name'] = [
+    $element['name'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Degree'),
-      '#default_value' => $items[$delta]->gt_people_degree_name ?? NULL,
+      '#default_value' => $items[$delta]->name ?? NULL,
       '#size' => 60,
       '#maxlength' => 255,
     ];
 
-    $element['gt_people_degree_year'] = [
+    $element['year'] = [
       '#type' => 'datelist',
       '#title' => $this->t('Year'),
-      '#default_value' => isset($items[$delta]->gt_people_degree_year)
-          ? \Drupal::service('date.formatter')->format(strtotime($items[$delta]->gt_people_degree_year . '-01-01'), 'custom', 'Y')
+      '#default_value' => isset($items[$delta]->year)
+          ? \Drupal::service('date.formatter')->format(strtotime($items[$delta]->year . '-01-01'), 'custom', 'Y')
           : NULL,
       '#date_part_order' => ['year'],
       '#date_year_range' => '1950:2050',
     ];
 
-    $element['gt_people_degree_institution'] = [
+    $element['institution'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Institution'),
-      '#default_value' => $items[$delta]->gt_people_degree_institution ?? NULL,
+      '#default_value' => $items[$delta]->institution ?? NULL,
       '#size' => 60,
       '#maxlength' => 255,
     ];
 
-    $element['gt_people_degree_location'] = [
+    $element['location'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Location'),
-      '#default_value' => $items[$delta]->gt_people_degree_location ?? NULL,
+      '#default_value' => $items[$delta]->location ?? NULL,
       '#size' => 60,
       '#maxlength' => 255,
     ];
@@ -73,31 +68,13 @@ class GtPeopleDegreeWidget extends WidgetBase {
     $element['gt_people_degree_designation'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Designation'),
-      '#default_value' => $items[$delta]->gt_people_degree_designation ?? NULL,
+      '#default_value' => $items[$delta]->designation ?? NULL,
       '#description' => $this->t('Any special designation associated with the degree, e.g. "with Honors"'),
       '#size' => 60,
       '#maxlength' => 255,
     ];
 
     return $element;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function massageFormValues(array $values, array $form, FormStateInterface $form_state): array {
-    // The datelist returns an array or object, so need to flatten it to a year string
-    foreach ($values as &$item) {
-      if (isset($item['gt_people_degree_year']) && is_array($item['gt_people_degree_year'])) {
-        // Extract the year from the datelist array (usually keyed by 'year').
-        $year = $item['gt_people_degree_year']['year'] ?? NULL;
-        $item['gt_people_degree_year'] = $year;
-      } elseif ($item['gt_people_degree_year'] instanceof \Drupal\Core\Datetime\DrupalDateTime) {
-        $item['gt_people_degree_year'] = $item['gt_people_degree_year']->format('Y');
-      }
-    }
-
-    return parent::massageFormValues($values, $form, $form_state);
   }
 
 }
