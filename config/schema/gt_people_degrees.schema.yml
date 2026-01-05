@@ -1,0 +1,43 @@
+# Schema for the Field Type settings
+field.storage_settings.gt_people_degree:
+  type: mapping
+  label: 'GT People Degree storage settings'
+  mapping:
+    # We didn't define specific storage settings in propertyDefinitions(),
+    # but it's good practice to map the basics if you expand later.
+    # Currently empty as we store standard strings.
+
+field.value.gt_people_degree:
+  type: mapping
+  label: 'GT People Degree value'
+  mapping:
+    gt_people_degree_name:
+      type: string
+      label: 'Degree Name'
+    gt_people_degree_year:
+      type: string
+      label: 'Year'
+    gt_people_degree_institution:
+      type: string
+      label: 'Institution'
+    gt_people_degree_location:
+      type: string
+      label: 'Location'
+    gt_people_degree_designation:
+      type: string
+      label: 'Designation'
+
+# Schema for the Field Widget settings
+field.widget.settings.gt_people_degree_widget:
+  type: mapping
+  label: 'GT People Degree Widget settings'
+  mapping:
+    # No custom settings defined in the widget class provided earlier.
+    # If you added settings later (like "year range"), they would go here.
+
+# Schema for the Field Formatter settings
+field.formatter.settings.gt_people_degree_formatter:
+  type: mapping
+  label: 'GT People Degree Formatter settings'
+  mapping:
+    # No custom settings defined in the formatter class provided earlier.

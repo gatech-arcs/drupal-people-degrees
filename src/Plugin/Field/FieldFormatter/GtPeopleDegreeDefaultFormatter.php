@@ -28,11 +28,11 @@ class GtPeopleDegreeDefaultFormatter extends FormatterBase {
     foreach ($items as $delta => $item) {
       $elements[$delta] = [
         '#theme' => 'gt_people_degree',
-        '#degree_name' => $item->field_gtppl_degree_name,
-        '#degree_year' => $item->field_gtppl_degree_year,
-        '#degree_institution' => $item->field_gtppl_degree_institution,
-        '#degree_location' => $item->field_gtppl_degree_location,
-        '#degree_designation' => $item->field_gtppl_degree_designation,
+        '#degree_name' => $item->gt_people_degree_name,
+        '#degree_year' => $item->gt_people_degree_year,
+        '#degree_institution' => $item->gt_people_degree_institution,
+        '#degree_location' => $item->gt_people_degree_location,
+        '#degree_designation' => $item->gt_people_degree_designation,
       ];
     }
 
