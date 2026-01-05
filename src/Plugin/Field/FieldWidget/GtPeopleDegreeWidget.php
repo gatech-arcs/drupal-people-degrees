@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\gt_people_degrees\Plugin\Field\FieldWidget;
 
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Field\Attribute\FieldWidget;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
@@ -65,7 +66,7 @@ class GtPeopleDegreeWidget extends WidgetBase {
       '#maxlength' => 255,
     ];
 
-    $element['gt_people_degree_designation'] = [
+    $element['designation'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Designation'),
       '#default_value' => $items[$delta]->designation ?? NULL,
@@ -77,4 +78,36 @@ class GtPeopleDegreeWidget extends WidgetBase {
     return $element;
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  // Since I keep messing up, reference:
+  // https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Field%21WidgetBase.php/function/WidgetBase%3A%3AmassageFormValues/11.x
+  public function massageFormValues(array $values, array $form, FormStateInterface $form_state): array {
+
+    foreach ($values as &$item) {
+      // Diferrent browsers can return array or an object from the form. Adapting to save
+
+      if (!isset($item['year'])) {
+        continue;
+      }
+      $val = $item['year'];
+
+      // If an array ['year' => '2025', 'month' => '', ...]
+      if (is_array($val)) {
+        if (!empty($val['year'])) {
+          $item['year'] = (string) $val['year'];
+        }
+        else {
+          $item['year'] = NULL;
+        }
+      }
+      // Or it processed as DateTime (safari it seems)
+      elseif ($val instanceof DrupalDateTime) {
+        $item['year'] = $val->format('Y');
+      }
+    }
+
+    return parent::massageFormValues($values, $form, $form_state);
+  }
 }
