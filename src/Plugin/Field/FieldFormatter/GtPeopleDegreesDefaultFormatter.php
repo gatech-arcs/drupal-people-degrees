@@ -14,10 +14,10 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
  */
 #[FieldFormatter(
   id: 'gt_people_degree_formatter',
-  label: new TranslatableMarkup('Default Degree Layout'),
-  field_types: ['gt_people_degree'],
+  label: new TranslatableMarkup('Default Degrees Layout'),
+  field_types: ['gt_people_degrees'],
 )]
-class GtPeopleDegreeDefaultFormatter extends FormatterBase {
+class GtPeopleDegreesDefaultFormatter extends FormatterBase {
 
   /**
    * {@inheritdoc}

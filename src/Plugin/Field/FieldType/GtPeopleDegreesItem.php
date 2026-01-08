@@ -14,13 +14,13 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
  * Compound "Degrees" field item.
  */
 #[FieldType(
-  id: 'gt_people_degree',
-  label: new TranslatableMarkup('Degree Listing'),
+  id: 'gt_people_degrees',
+  label: new TranslatableMarkup('Degrees Listing'),
   description: new TranslatableMarkup('Degree name, year, institution, location, and any designation.'),
-  default_widget: 'gt_people_degree_widget',
-  default_formatter: 'gt_people_degree_formatter',
+  default_widget: 'gt_people_degrees_widget',
+  default_formatter: 'gt_people_degrees_formatter',
 )]
-class GtPeopleDegreeItem extends FieldItemBase {
+class GtPeopleDegreesItem extends FieldItemBase {
 
   /**
    * {@inheritdoc}

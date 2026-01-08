@@ -15,11 +15,11 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
  * https://www.drupal.org/docs/creating-custom-modules/creating-custom-field-types-widgets-and-formatters/create-a-custom-field-widget
  */
 #[FieldWidget(
-  id: 'gt_people_degree_widget',
+  id: 'gt_people_degrees_widget',
   label: new TranslatableMarkup('Degrees Form'),
-  field_types: ['gt_people_degree'],
+  field_types: ['gt_people_degrees'],
 )]
-class GtPeopleDegreeWidget extends WidgetBase {
+class GtPeopleDegreesWidget extends WidgetBase {
 
   /**
    * {@inheritdoc}
