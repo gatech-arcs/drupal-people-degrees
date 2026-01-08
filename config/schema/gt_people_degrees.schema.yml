@@ -23,9 +23,6 @@ field.value.gt_people_degree:
     location:
       type: string
       label: 'Location'
-    designation:
-      type: string
-      label: 'Designation'
 
 # Schema for the Field Widget settings
 field.widget.settings.gt_people_degree_widget:

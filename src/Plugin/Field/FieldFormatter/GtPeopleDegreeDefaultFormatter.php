@@ -25,19 +25,19 @@ class GtPeopleDegreeDefaultFormatter extends FormatterBase {
   public function viewElements(FieldItemListInterface $items, $langcode): array {
     $elements = [];
 
-    foreach ($items as $delta => $item) {
-      $elements[$delta] = [
-        '#theme' => 'gt_people_degree',
-        '#name' => $item->name,
-        '#year' => $item->year,
-        '#institution' => $item->institution,
-        '#location' => $item->location,
-        '#designation' => $item->designation,
-      ];
+    if (!$items->isEmpty()) {
+      foreach ($items as $delta => $item) {
+        $elements[$delta] = [
+          '#theme' => 'gt_people_degree',
+          'name' => $item->name,
+          'year' => $item->year,
+          'institution' => $item->institution,
+          'location' => $item->location,
+        ];
+      }
     }
 
     return $elements;
-
   }
 
 }

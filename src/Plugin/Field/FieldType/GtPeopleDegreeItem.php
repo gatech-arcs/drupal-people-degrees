@@ -29,10 +29,9 @@ class GtPeopleDegreeItem extends FieldItemBase {
     return [
       'columns' => [
         'name' => ['type' => 'varchar', 'length' => 255],
-        'year' => ['type' => 'varchar', 'length' => 20],
+        'year' => ['type' => 'varchar', 'length' => 255],
         'institution' => ['type' => 'varchar', 'length' => 255],
         'location' => ['type' => 'varchar', 'length' => 255],
-        'designation' => ['type' => 'varchar', 'length' => 255],
       ],
     ];
   }
@@ -44,9 +43,10 @@ class GtPeopleDegreeItem extends FieldItemBase {
     $properties = [];
 
     $properties['name'] = DataDefinition::create('string')
-      ->setLabel(new TranslatableMarkup('Degree Name'));
+      ->setLabel(new TranslatableMarkup('Degree Name'))
+      ->setDescription(new TranslatableMarkup('Full level, field, any designation e.g. BS with Honors Chemistry '));
 
-    $properties['year'] = DataDefinition::create('integer')
+    $properties['year'] = DataDefinition::create('string')
       ->setLabel(new TranslatableMarkup('Year'));
 
     $properties['institution'] = DataDefinition::create('string')
@@ -55,19 +55,16 @@ class GtPeopleDegreeItem extends FieldItemBase {
     $properties['location'] = DataDefinition::create('string')
       ->setLabel(new TranslatableMarkup('Location'));
 
-    $properties['designation'] = DataDefinition::create('string')
-      ->setLabel(new TranslatableMarkup('Designation'))
-      ->setDescription(new TranslatableMarkup('Any special designation associated with the degree'));
-
     return $properties;
   }
   /**
    * {@inheritdoc}
    */
   public function isEmpty(): bool {
-    // KISS -- consider field empty if the Degree Name is empty.
-    $value = $this->get('name')->getValue();
-    return $value === NULL || $value === '';
+    return $this->get('name')->getValue() === NULL
+      && $this->get('year')->getValue() === NULL
+      && $this->get('institution')->getValue() === NULL
+      && $this->get('location')->getValue() === NULL;
   }
 
 }
